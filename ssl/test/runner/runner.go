@@ -1174,7 +1174,7 @@ const xtermSize = "140x50"
 
 func valgrindOf(dbAttach bool, path string, args ...string) *exec.Cmd {
 	//valgrindArgs := []string{"--error-exitcode=99", "--track-origins=yes", "--leak-check=full", "--quiet"}
-	valgrindArgs := []string{"--tool=drd", "--quiet"}
+	valgrindArgs := []string{"--tool=helgrind", "--quiet"}
 	if dbAttach {
 		valgrindArgs = append(valgrindArgs, "--db-attach=yes", "--db-command=xterm -geometry "+xtermSize+" -e gdb -nw %f %p")
 	}
